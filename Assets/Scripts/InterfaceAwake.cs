@@ -10,6 +10,8 @@ public class InterfaceAwake : MonoBehaviour
     {
         GameManager.currentNumberDestroyedStones = 0;
         GameManager.currentNumberStonesThrown = 0;
+        GameManager.currentNumberOfStonesNotDestroyed = 0;
+        GameManager.currentNumberOfLives = 3;
     }
 
     public void Click()

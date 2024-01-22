@@ -18,6 +18,10 @@ public class Stone : MonoBehaviour
         if(transform.position.y < yDie)
         {
             Destroy(gameObject);
+            if ( !gameObject.CompareTag("Bomb")) // Si el objeto no es una bomba
+            {
+            GameManager.currentNumberOfStonesNotDestroyed++;
+            }
         }
         
     }
@@ -26,6 +30,14 @@ public class Stone : MonoBehaviour
     {
         Destroy(Instantiate(explosion, transform.position, Quaternion.identity),/*Destruir  2 segundos despues*/ 2.0f);
         Destroy(gameObject);
+        if ( !gameObject.CompareTag("Bomb")){ // Si el objeto no es una bomba
         GameManager.currentNumberDestroyedStones++;
+            }
+
+        if ( gameObject.CompareTag("Bomb")) // Si el objeto es una bomba
+            {
+                // Restar una vida si se toca una bomba
+                GameManager.currentNumberOfLives--;
+            }
     }
 }

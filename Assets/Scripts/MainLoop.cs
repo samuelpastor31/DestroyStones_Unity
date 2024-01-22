@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -31,7 +31,7 @@ public class MainLoop: MonoBehaviour {
 		
 		while(enableStones) {
 
-			if(GameManager.currentNumberDestroyedStones == 20)
+			if(GameManager.currentNumberDestroyedStones == 20 || GameManager.currentNumberOfLives == 0)
 			{
 				SceneManager.LoadScene("Final");
 			}
@@ -49,7 +49,9 @@ public class MainLoop: MonoBehaviour {
 			rb.AddForce(Vector3.up * Random.Range(minAntiGravity, maxAntiGravity), ForceMode.Impulse);
 			rb.AddForce(Vector3.right * Random.Range(minLateralForce, maxLateralForce), ForceMode.Impulse);	
 
+					if ( !gameObject.CompareTag("Bomb")) {// Si el objeto no es una bomba
 					GameManager.currentNumberStonesThrown++;
+					}
 
 			yield return new WaitForSeconds(Random.Range(minTimeBetweenStones, maxTimeBetweenStones));
 			

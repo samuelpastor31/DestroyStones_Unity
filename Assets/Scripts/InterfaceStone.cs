@@ -7,6 +7,8 @@ public class InterfaceStone : MonoBehaviour
 {
     public Text textThrown;
     public Text textDestroyed;
+    public Text lifes;
+    public Text textNotDestroyed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,7 @@ public class InterfaceStone : MonoBehaviour
     {
         textThrown.text = "Number of stones: " + GameManager.currentNumberStonesThrown;
         textDestroyed.text = "Destroyed: " + GameManager.currentNumberDestroyedStones;
+        textNotDestroyed.text = "Not destroyed: " + GameManager.currentNumberOfStonesNotDestroyed;
+        lifes.text = "Lifes: " + GameManager.currentNumberOfLives;
     }
 }
